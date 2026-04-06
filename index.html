@@ -3,199 +3,282 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>منصة النمذجة بالفيديو للتوحد</title>
+  <title>منصة النمذجة بالفيديو لذوي اضطراب طيف التوحد</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+  :root {
+    --bg: #fafcfb;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #dbe4ea;
 
-    body {
-      margin: 0;
-      font-family: Tahoma, Arial, sans-serif;
-      background: #f8fafc;
-      color: #0f172a;
-      line-height: 1.9;
-    }
+    --primary: #0f766e;
+    --primary-dark: #115e59;
+    --primary-light: #ecfdf5;
 
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    --secondary: #1d4ed8;
+    --secondary-light: #dbeafe;
 
-    .site-header {
-      background: white;
-      border-bottom: 1px solid #e2e8f0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+    --hero-start: #ecfdf5;
+    --hero-mid: #f0fdf4;
+    --hero-end: #f8fafc;
 
+    --shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+    --radius: 20px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.95;
+  }
+
+  .container {
+    width: 92%;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+
+  .site-header {
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 0;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-dark);
+  }
+
+  nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #334155;
+    padding: 9px 14px;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: 0.25s ease;
+  }
+
+  nav a:hover {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+  }
+
+  nav a.active {
+    background: var(--secondary-light);
+    color: var(--secondary);
+    font-weight: 700;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--hero-start) 0%, var(--hero-mid) 45%, var(--hero-end) 100%);
+    padding: 100px 0 90px;
+  }
+
+  .hero h2 {
+    font-size: 42px;
+    line-height: 1.5;
+    margin: 0 0 18px;
+    max-width: 900px;
+    color: var(--text);
+  }
+
+  .hero p {
+    max-width: 850px;
+    color: var(--muted);
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .btn,
+  .contact-form button {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    margin-top: 22px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.25s ease;
+    box-shadow: 0 8px 18px rgba(15, 118, 110, 0.14);
+  }
+
+  .btn:hover,
+  .contact-form button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+
+  .section.light {
+    background: #ffffff;
+  }
+
+  .section h3 {
+    font-size: 32px;
+    margin: 0 0 18px;
+    color: var(--text);
+  }
+
+  .section p {
+    color: var(--muted);
+    font-size: 17px;
+    margin-top: 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    margin-top: 28px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+  }
+
+  .card h4 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: var(--primary-dark);
+  }
+
+  .card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .resource-list {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px 34px;
+    box-shadow: var(--shadow);
+    margin-top: 24px;
+  }
+
+  .resource-list li {
+    margin-bottom: 14px;
+    color: #334155;
+    font-size: 16px;
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 14px;
+    max-width: 680px;
+    margin-top: 24px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    font-size: 15px;
+    background: white;
+    color: var(--text);
+    transition: 0.2s ease;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.08);
+  }
+
+  .contact-form textarea {
+    min-height: 170px;
+    resize: vertical;
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--border);
+    background: white;
+    text-align: center;
+    padding: 24px 0;
+    color: #64748b;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
     .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 16px 0;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      margin: 0;
-      font-size: 22px;
-    }
-
-    nav {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #334155;
-      padding: 8px 12px;
-      border-radius: 10px;
-    }
-
-    nav a:hover {
-      background: #e2e8f0;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .hero {
-      background: linear-gradient(to bottom, #dff7f2, #f8fafc);
-      padding: 90px 0;
+      padding: 80px 0 70px;
     }
 
     .hero h2 {
-      font-size: 40px;
-      margin-bottom: 16px;
-      max-width: 900px;
+      font-size: 30px;
     }
 
     .hero p {
-      max-width: 850px;
-      color: #475569;
-      font-size: 18px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #0f172a;
-      color: white;
-      padding: 14px 22px;
-      border-radius: 12px;
-      text-decoration: none;
-      margin-top: 18px;
-    }
-
-    .section {
-      padding: 75px 0;
-    }
-
-    .section.light {
-      background: white;
+      font-size: 16px;
     }
 
     .section h3 {
-      font-size: 30px;
-      margin-bottom: 20px;
+      font-size: 26px;
     }
-
-    .section p {
-      color: #475569;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 24px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
-    }
-
-    .card h4 {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    .resource-list {
-      background: white;
-      border: 1px solid #e2e8f0;
-      border-radius: 18px;
-      padding: 24px 32px;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
-    }
-
-    .resource-list li {
-      margin-bottom: 12px;
-      color: #334155;
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 14px;
-      max-width: 650px;
-      margin-top: 20px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #cbd5e1;
-      border-radius: 12px;
-      font-size: 15px;
-    }
-
-    .contact-form textarea {
-      min-height: 160px;
-    }
-
-    .contact-form button {
-      background: #0f172a;
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 14px;
-      cursor: pointer;
-    }
-
-    .site-footer {
-      border-top: 1px solid #e2e8f0;
-      background: white;
-      text-align: center;
-      padding: 22px 0;
-      color: #64748b;
-    }
-
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 30px;
-      }
-
-      .section h3 {
-        font-size: 25px;
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
-      <h1 class="logo">منصة النمذجة بالفيديو للتوحد</h1>
+      <h1 class="logo">منصة النمذجة بالفيدي لذوي اضطراب طيف التوحد</h1>
       <nav>
   <a href="index.html">الرئيسية</a>
   <a href="about.html">عن المنصة</a>
@@ -205,154 +288,146 @@
     </div>
   </header>
 
-  <section id="home" class="hero">
+  <section class="hero">
     <div class="container">
       <h2>منصة متخصصة في استخدام النمذجة بالفيديو مع الأشخاص ذوي اضطراب طيف التوحد</h2>
-
-<p>
-  تقدم المنصة محتوى متخصصًا ومنظمًا في استخدام النمذجة بالفيديو مع الأشخاص ذوي اضطراب طيف التوحد، وفق الفئات العمرية والمراحل التعليمية المختلفة، بما يشمل الأطفال، وطلبة المدارس، وطلبة الجامعة، والبالغين.
-</p>
-      <a class="btn" href="#resources">ابدأ باستكشاف الموارد</a>
+      <p>
+        تقدم المنصة محتوى متخصصًا ومنظمًا في استخدام النمذجة بالفيديو مع الأشخاص ذوي اضطراب طيف التوحد، وفق الفئات العمرية والمراحل التعليمية المختلفة، بما يشمل الأطفال، وطلبة المرحلة الابتدائية والمتوسطة والثانوية، وطلبة الجامعة، والبالغين.
+      </p>
+      <a class="btn" href="resources.html">استكشف الموارد</a>
+      <a class="btn" href="about.html">تعرف على المنصة</a>
     </div>
   </section>
-
-  <section id="about" class="section">
+ 
+  <section class="section">
     <div class="container">
       <h3>عن المنصة</h3>
       <p>
-        تهدف هذه المنصة إلى أن تكون مرجعًا عربيًا واضحًا وعمليًا في النمذجة بالفيديو، مع تنظيم المحتوى حسب المراحل العمرية والمهارات والبيئات التعليمية والمنزلية.
+        تهدف المنصة إلى أن تكون مرجعًا عربيًا متخصصًا في استخدام النمذجة بالفيديو مع الأشخاص ذوي اضطراب طيف التوحد، من خلال تقديم محتوى منظم ومهني يربط بين المعرفة العلمية والتطبيق العملي في البيئات المنزلية والتعليمية والمجتمعية.
       </p>
+ 
       <div class="grid">
         <div class="card">
           <h4>ما هي النمذجة بالفيديو؟</h4>
-          <p>أسلوب تعليمي يعتمد على عرض فيديو يوضح المهارة المستهدفة ثم تطبيقها عمليًا.</p>
+          <p>أسلوب تعليمي يعتمد على مشاهدة نموذج مصور لأداء المهارة أو السلوك المستهدف، ثم تطبيقه في موقف مشابه.</p>
         </div>
+ 
         <div class="card">
-          <h4>لماذا هي مفيدة؟</h4>
-          <p>لأنها تقدم نموذجًا واضحًا ومتكررًا وتدعم الاستقلالية وتقلل التلقين المباشر.</p>
+          <h4>لماذا هي مهمة؟</h4>
+          <p>لأنها تقدم نموذجًا بصريًا واضحًا ومنظمًا، وتساعد في دعم التعلم، وزيادة الاستقلالية، وتقليل الاعتماد على التلقين المباشر.</p>
         </div>
+ 
         <div class="card">
           <h4>أين يمكن استخدامها؟</h4>
-          <p>في المنزل، والمدرسة، والعيادة، والمجتمع، والجامعة، وبرامج الانتقال.</p>
+          <p>يمكن توظيفها في المنزل، والمدرسة، والجامعة، والمجتمع، وفي المواقف المرتبطة بالمهارات اليومية والأكاديمية والاجتماعية.</p>
         </div>
       </div>
     </div>
   </section>
-
-  <section id="ages" class="section light">
+ 
+  <section class="section light">
     <div class="container">
       <h3>المحتوى حسب الفئات العمرية والمراحل التعليمية</h3>
-
-<div class="grid">
-  <div class="card">
-    <h4>الأطفال</h4>
-    <p>مهارات التقليد، والتواصل الوظيفي، والروتين اليومي، واللعب، ومهارات العناية الذاتية، والمهارات الأكاديمية المبكرة.</p>
-  </div>
-
-  <div class="card">
-    <h4>طلبة المرحلة الابتدائية</h4>
-    <p>روتين الصف، واتباع التعليمات، والمشاركة الصفية، والمهارات الاجتماعية المبكرة، والاستقلالية، والمهارات الأكاديمية الأساسية.</p>
-  </div>
-
-  <div class="card">
-    <h4>طلبة المرحلة المتوسطة</h4>
-    <p>تنظيم الأدوات، وإدارة الوقت، وطلب المساعدة، ومهارات الصداقة، والاعتماد على النفس، والمهارات الأكاديمية المرتبطة بالواجبات والمهام الصفية.</p>
-  </div>
-
-  <div class="card">
-    <h4>طلبة المرحلة الثانوية</h4>
-    <p>الدفاع عن الذات، والسلوك المتوقع، والمهارات المجتمعية، والجاهزية المهنية، والمسؤولية الشخصية، والمهارات الأكاديمية المرتبطة بالتخطيط، وإنجاز المتطلبات الدراسية، وتنظيم التعلم.</p>
-  </div>
-
-  <div class="card">
-    <h4>طلبة الجامعة</h4>
-    <p>التواصل الأكاديمي، وتنظيم الجدول، والتنقل داخل الحرم الجامعي، والاستفادة من الخدمات الداعمة، والمهارات الأكاديمية الجامعية مثل إدارة الوقت، ومتابعة المتطلبات، والتفاعل مع أعضاء هيئة التدريس.</p>
-  </div>
-
-  <div class="card">
-    <h4>البالغون</h4>
-    <p>مهارات الاستقلالية، والحياة اليومية، والتواصل الاجتماعي، والمهارات المجتمعية والوظيفية، والمهارات التعليمية والتدريبية ذات الصلة بالتعلم المستمر.</p>
-  </div>
-</div>
+ 
+      <div class="grid">
+        <div class="card">
+          <h4>الأطفال</h4>
+          <p>مهارات التقليد، والتواصل الوظيفي، والروتين اليومي، واللعب، ومهارات العناية الذاتية، والمهارات الأكاديمية المبكرة.</p>
+        </div>
+ 
+        <div class="card">
+          <h4>طلبة المرحلة الابتدائية</h4>
+          <p>روتين الصف، واتباع التعليمات، والمشاركة الصفية، والمهارات الاجتماعية المبكرة، والاستقلالية، والمهارات الأكاديمية الأساسية.</p>
+        </div>
+ 
+        <div class="card">
+          <h4>طلبة المرحلة المتوسطة</h4>
+          <p>تنظيم الأدوات، وإدارة الوقت، وطلب المساعدة، ومهارات الصداقة، والاعتماد على النفس، والمهارات الأكاديمية المرتبطة بالواجبات والمهام الصفية.</p>
+        </div>
+ 
+        <div class="card">
+          <h4>طلبة المرحلة الثانوية</h4>
+          <p>الدفاع عن الذات، والسلوك المتوقع، والمهارات المجتمعية، والجاهزية المهنية، والمسؤولية الشخصية، والمهارات الأكاديمية المرتبطة بالتخطيط وإنجاز المتطلبات الدراسية.</p>
+        </div>
+ 
+        <div class="card">
+          <h4>طلبة الجامعة</h4>
+          <p>التواصل الأكاديمي، وتنظيم الجدول، والتنقل داخل الحرم الجامعي، والاستفادة من الخدمات الداعمة، والمهارات الأكاديمية الجامعية.</p>
+        </div>
+ 
+        <div class="card">
+          <h4>البالغون</h4>
+          <p>مهارات الاستقلالية، والحياة اليومية، والتواصل الاجتماعي، والمهارات المجتمعية والوظيفية، والمهارات التعليمية والتدريبية ذات الصلة بالتعلم المستمر.</p>
+        </div>
       </div>
     </div>
   </section>
-
-  <section id="skills" class="section">
+ 
+  <section class="section">
     <div class="container">
-     <h3>المحتوى حسب المهارة</h3>
-
-<div class="grid">
-  <div class="card">
-    <h4>التواصل</h4>
-    <p>طلب الاحتياجات، وبدء المحادثة، والتعبير عن الرغبات، والرد المناسب، وآداب الحوار.</p>
-  </div>
-
-  <div class="card">
-    <h4>المهارات الاجتماعية</h4>
-    <p>التحية، وتبادل الأدوار، والانضمام للنشاط، والتفاعل مع الأقران، وفهم المواقف الاجتماعية.</p>
-  </div>
-
-  <div class="card">
-    <h4>مهارات الحياة اليومية</h4>
-    <p>اللبس، والنظافة الشخصية، والأكل، وترتيب الأدوات، والروتين المنزلي، والاستقلالية في الأنشطة اليومية.</p>
-  </div>
-
-  <div class="card">
-    <h4>المهارات الأكاديمية</h4>
-    <p>اتباع التعليمات الأكاديمية، والبدء في المهام، وإكمال الواجبات، وتنظيم المواد الدراسية، والمشاركة الصفية، وإدارة متطلبات التعلم في المدرسة والجامعة.</p>
-  </div>
-
-  <div class="card">
-    <h4>التنظيم الذاتي</h4>
-    <p>الانتظار، والتهدئة، والتعامل مع التغيير، والتحكم في الانفعال، ومتابعة الخطوات.</p>
-  </div>
-
-  <div class="card">
-    <h4>المهارات المجتمعية والانتقالية</h4>
-    <p>التنقل، والتسوق، واستخدام الخدمات، والتواصل في المواقف العامة، والمهارات المرتبطة بالانتقال إلى الجامعة أو الرشد.</p>
-  </div>
-</div>
+      <h3>المحتوى حسب المهارة</h3>
+ 
+      <div class="grid">
+        <div class="card">
+          <h4>مهارات التواصل</h4>
+          <p>طلب الاحتياجات، وبدء المحادثة، والتعبير عن الرغبات، والرد المناسب، وآداب الحوار.</p>
+        </div>
+ 
+        <div class="card">
+          <h4>المهارات الاجتماعية</h4>
+          <p>التحية، وتبادل الأدوار، والانضمام للنشاط، والتفاعل مع الأقران، وفهم المواقف الاجتماعية.</p>
+        </div>
+ 
+        <div class="card">
+          <h4>مهارات الحياة اليومية</h4>
+          <p>اللبس، والنظافة الشخصية، والأكل، وترتيب الأدوات، والروتين المنزلي، والاستقلالية في الأنشطة اليومية.</p>
+        </div>
+ 
+        <div class="card">
+          <h4>المهارات الأكاديمية</h4>
+          <p>تشمل الرياضيات، والقراءة والمهارات القرائية، والكتابة والتعبير الكتابي، ومهارات التعلم والسلوكيات الأكاديمية الداعمة.</p>
+        </div>
+ 
+        <div class="card">
+          <h4>التنظيم الذاتي</h4>
+          <p>الانتظار، والتهدئة، والتعامل مع التغيير، والتحكم في الانفعال، ومتابعة الخطوات.</p>
+        </div>
+ 
+        <div class="card">
+          <h4>المهارات المجتمعية والانتقالية</h4>
+          <p>التنقل، والتسوق، واستخدام الخدمات، والتواصل في المواقف العامة، والمهارات المرتبطة بالانتقال إلى الجامعة أو الرشد.</p>
+        </div>
       </div>
     </div>
   </section>
-
-  <section id="resources" class="section light">
+ 
+  <section class="section light">
     <div class="container">
       <h3>الموارد</h3>
-      <ul class="resource-list">
-        <li>نموذج تخطيط النمذجة بالفيديو</li>
-        <li>ورقة تحليل المهمة</li>
-        <li>نموذج كتابة السيناريو</li>
-        <li>قائمة التحقق للتصوير</li>
-        <li>نموذج متابعة الأداء وجمع البيانات</li>
-        <li>أمثلة لمهارات منزلية ومدرسية وجامعية</li>
-        <li>قائمة جاهزية الجامعة ومهارات الانتقال للرشد</li>
-      </ul>
+      <p>
+        توفر المنصة نماذج وأدوات عملية وأفكارًا تطبيقية ومحتوى علميًا منظمًا يدعم استخدام النمذجة بالفيديو في المنزل، والمدرسة، والجامعة، والمجتمع.
+      </p>
     </div>
   </section>
-
-  <section id="contact" class="section">
+ 
+  <section class="section">
     <div class="container">
-      <h3>تواصل</h3>
-      <p>يمكن تخصيص هذا القسم لاحقًا للتعاون، أو التدريب، أو الشراكات، أو طلب الموارد.</p>
-      <form class="contact-form">
-        <input type="text" placeholder="الاسم" />
-        <input type="email" placeholder="البريد الإلكتروني" />
-        <textarea placeholder="اكتب رسالتك"></textarea>
-        <button type="button">إرسال</button>
-      </form>
+      <h3>الهدف من المنصة</h3>
+      <p>
+        تسعى المنصة إلى دعم الاستخدام المنظم والمهني للنمذجة بالفيديو، وتوفير محتوى عربي واضح يسهم في تعزيز التعلم، والاستقلالية، والمشاركة الفاعلة للأشخاص ذوي اضطراب طيف التوحد عبر المراحل العمرية المختلفة.
+      </p>
     </div>
   </section>
-
+ 
   <footer class="site-footer">
     <div class="container">
       <p>© <span id="year"></span> منصة النمذجة بالفيديو للتوحد</p>
     </div>
   </footer>
-
+ 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+ 
 </body>
 </html>
